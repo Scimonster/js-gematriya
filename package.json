@@ -1,0 +1,19 @@
+{
+	"name": "gematriya",
+	"version": "1.0.0",
+	"author": "Eyal Schachter (https://github.com/Scimonster)",
+	"description": "Convert numbers to gematriya representation, and vice-versa.",
+	"keywords": [
+		"hebrew",
+		"gematriya",
+		"numbers"
+	],
+	"main": "gematriya.js",
+	"homepage": "https://github.com/Scimonster/js-gematriya",
+	"bugs": "https://github.com/Scimonster/js-gematriya/issues",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Scimonster/js-gematriya.git"
+	}
+}

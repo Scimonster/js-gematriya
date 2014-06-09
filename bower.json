@@ -1,0 +1,20 @@
+{
+	"name": "gematriya",
+	"main": "index.js",
+	"version": "1.0.0",
+	"authors": [
+		"Scimonster <tehalmightyscimonster@gmail.com>"
+	],
+	"description": "Convert numbers to gematriya representation, and vice-versa.",
+	"main": "gematriya.js",
+	"moduleType": [
+		"node"
+	],
+	"keywords": [
+		"hebrew",
+		"gematriya",
+		"numbers"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/Scimonster/js-gematriya"
+}
