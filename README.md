@@ -19,6 +19,8 @@ On the client side, the API is available through the global function `gematriya`
 
 A single function is available. Pass it a `Number` or `String`. Given a number, it will return the string representation. Given a gematriya string, it will return the number it represents.
 
+When passing a string, by default, it just adds up the numbers, regardless of place. By passing `true` as a second parameter, it will treat it as being ordered, as per the output (see below).
+
 When passing a number, a second parameter is available, `limit`. This will limit the length of the returned string to a number of digits. For example:
 
 ```js

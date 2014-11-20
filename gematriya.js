@@ -75,7 +75,7 @@
 
 		num = num.map(function g(n,i){
 			if (str) {
-				return numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
+				return limit && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
 			} else {
 				if (parseInt(n, 10) * Math.pow(10, i) > 1000) {
 					return g(n, i-3);

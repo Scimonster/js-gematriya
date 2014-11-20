@@ -1,6 +1,6 @@
 {
 	"name": "gematriya",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Eyal Schachter (https://github.com/Scimonster)",
 	"description": "Convert numbers to gematriya representation, and vice-versa.",
 	"keywords": [
