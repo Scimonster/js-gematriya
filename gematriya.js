@@ -60,7 +60,8 @@
 		letters[numbers[i]] = i;
 	}
 
-	function gematriya(num, limit) {
+	function gematriya(num, options = {limit: false, punctuate: true }) {
+		const {limit, punctuate} = options;
 		if (typeof num !== 'number' && typeof num !== 'string') {
 			throw new TypeError('non-number or string given to gematriya()');
 		}
@@ -90,11 +91,13 @@
 			}, 0);
 		} else {
 			num = num.reverse().join('').replace(/יה/g,'טו').replace(/יו/g,'טז').split('');
-
-			if (num.length === 1) {
-				num.push("'");
-			} else if (num.length > 1) {
-				num.splice(-1, 0, '"');
+		
+			if (punctuate)	{
+				if (num.length === 1) {
+					num.push("'");
+				} else if (num.length > 1) {
+					num.splice(-1, 0, '"');
+				}
 			}
 
 			return num.join('');
