@@ -60,8 +60,8 @@
 		letters[numbers[i]] = i;
 	}
 
-	function gematriya(num, options = {limit: false, punctuate: true }) {
-		const {limit, punctuate} = options;
+	function gematriya(num, options = {limit: false, punctuate: true, order: false }) {
+		const {limit, punctuate, order} = options;
 		if (typeof num !== 'number' && typeof num !== 'string') {
 			throw new TypeError('non-number or string given to gematriya()');
 		}
@@ -76,7 +76,7 @@
 
 		num = num.map(function g(n,i){
 			if (str) {
-				return limit && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
+				return order && numbers[n] < numbers[num[i - 1]] && numbers[n] < 100 ? numbers[n] * 1000 : numbers[n];
 			} else {
 				if (parseInt(n, 10) * Math.pow(10, i) > 1000) {
 					return g(n, i-3);
