@@ -60,12 +60,26 @@
 		letters[numbers[i]] = i;
 	}
 
-	function gematriya(num, options = {limit: false, punctuate: true, order: false }) {
-		const {limit, punctuate, order} = options;
+	function gematriya(num, options) {
+		if (options === undefined) {
+			var options = {limit: false, punctuate: true, order: false }
+		}
+		
 		if (typeof num !== 'number' && typeof num !== 'string') {
 			throw new TypeError('non-number or string given to gematriya()');
 		}
+
+		if (typeof options !== 'object' || options === null){
+			throw new TypeError('An object was not given as second argument')
+		}
+
+		var limit = options.limit
+		var punctuate = options.punctuate
+		var order = options.order
+
+		
 		var str = typeof num === 'string';
+
 		if (str) {
 			num = num.replace(/('|")/g,'');
 		}
