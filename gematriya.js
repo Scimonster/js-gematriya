@@ -11,10 +11,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -62,9 +62,9 @@
 
 	function gematriya(num, options) {
 		if (options === undefined) {
-			var options = {limit: false, punctuate: true, order: false }
+			var options = {limit: false, punctuate: true, order: false, geresh: true};
 		}
-		
+
 		if (typeof num !== 'number' && typeof num !== 'string') {
 			throw new TypeError('non-number or string given to gematriya()');
 		}
@@ -73,11 +73,11 @@
 			throw new TypeError('An object was not given as second argument')
 		}
 
-		var limit = options.limit
-		var punctuate = options.punctuate
-		var order = options.order
+		var limit = options.limit;
+		var order = options.order;
+		var punctuate = typeof options.punctuate === 'undefined' ? true : options.punctuate;
+		var geresh = typeof options.geresh === 'undefined' && punctuate ? true : options.geresh;
 
-		
 		var str = typeof num === 'string';
 
 		if (str) {
@@ -105,12 +105,12 @@
 			}, 0);
 		} else {
 			num = num.reverse().join('').replace(/יה/g,'טו').replace(/יו/g,'טז').split('');
-		
-			if (punctuate)	{
+
+			if (punctuate || geresh)	{
 				if (num.length === 1) {
-					num.push("'");
+					num.push(geresh ? '׳' : "'");
 				} else if (num.length > 1) {
-					num.splice(-1, 0, '"');
+					num.splice(-1, 0, geresh ? '״' : '"');
 				}
 			}
 
