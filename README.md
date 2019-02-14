@@ -8,7 +8,7 @@ This code was originally written for [hebcal/hebcal-js](https://github.com/hebca
 
 Install gematriya from NPM, bower, or just take the `gematriya.js` script from this repo.
 
-```
+```bash
 npm install gematriya
 bower install gematriya
 ```
@@ -19,14 +19,18 @@ On the client side, the API is available through the global function `gematriya`
 
 A single function is available. Pass it a `Number` or `String`. Given a number, it will return the string representation. Given a gematriya string, it will return the number it represents.
 
-When passing a string, by default, it just adds up the numbers, regardless of place. By passing `true` as a second parameter, it will treat it as being ordered, as per the output (see below).
+When passing a string, by default, it just adds up the numbers, regardless of place. By passing `{order: true}` as a second parameter, it will treat it as being ordered, as per the output (see below).
 
-When passing a number, a second parameter is available, `limit`. This will limit the length of the returned string to a number of digits. For example:
+When passing a number, an optional options object is available as a second parameter. Setting a number as a value for the limit key will limit the length of the returned string to a number of digits. Setting false as the value for the punctuate key will remove double and single quoatation marks in the returned string. Like this:
 
 ```js
 gematriya(5774) // התשע"ד - ordinary
-gematriya(5774, 3) // תשע"ד - cropped to 774
-gematriya(5774, 7) // התשע"ד - kept at 5774
+gematriya(5774, {limit: 3}) // תשע"ד - cropped to 774
+gematriya(5774, {limit: 7}) // התשע"ד - kept at 5774
+gematriya(5774, {punctuate: false}) // 'התשעד' - removed quotation marks
+gematriya(5774, {punctuate: true}) // 'התשע"ד' - with quotation marks
+gematriya('התשעד', {order: true}) // 5774 - treats the characters as an ordered number
+gematriya('התשעד', {order: false}) // 779 - Adds up all the characters
 ```
 
 ## License
